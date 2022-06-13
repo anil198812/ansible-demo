@@ -7,7 +7,7 @@ env:
     TAG_ENVIRONMENT: "ansible-cfn-demo"
     TAG_NAME: "Apache Web Server"
     TAG_GROUP: "curryPoint"
-    AMI_ID: ""
+    AMI_ID: "ami-08895422b5f3aa64a"
   parameter-store:
     INSTANCE_TYPE: "/ansible_demo/instance_type"
     SSH_LOCATION: "/ansible_demo/ssh_location"

@@ -27,10 +27,10 @@
         "privilegedMode": false,
         "imagePullCredentialsType": "CODEBUILD"
     },
-    "serviceRole": "arn:aws:iam::931066906971:role/service-role/codebuild-cf-service-role",
+    "serviceRole": "arn:aws:iam::636623271765:role/service-role/codebuild-cf-service-role",
     "timeoutInMinutes": 60,
     "queuedTimeoutInMinutes": 480,
-    "encryptionKey": "arn:aws:kms:us-east-1:931066906971:alias/aws/s3",
+    "encryptionKey": "arn:aws:kms:us-east-1:636623271765:alias/aws/s3",
     "tags": [],
     "vpcConfig": {},
     "badgeEnabled": true,

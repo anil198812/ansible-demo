@@ -84,6 +84,12 @@ Resources:
         - Key: Environment
           Value: !Ref TagEnv
           PropagateAtLaunch: true
+      BlockDeviceMappings:
+       - DeviceName: /dev/xvda
+        Ebs:
+         VolumeType: gp3
+         VolumeSize: 200
+         DeleteOnTermination: true          
     CreationPolicy:
       ResourceSignal:
         Timeout: PT15M
