@@ -17,4 +17,4 @@
   - name: Check if the AWS Region of the VPC is {{ lookup('env','AWS_REGION') }}
     debug:
       msg: "AWS Region of the VPC is {{ lookup('env','AWS_REGION') }}"
-    failed_when: cloudformation['ansible-cfn-demo-network'].stack_outputs['VpcRegion'] != lookup('env','AWS_REGION')
+    failed_when: cloudformation['ansible-cfn-CurryPoint-network'].stack_outputs['VpcRegion'] != lookup('env','AWS_REGION')

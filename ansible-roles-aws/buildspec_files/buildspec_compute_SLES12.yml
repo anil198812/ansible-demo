@@ -2,11 +2,12 @@ version: 0.2
 
 env:
   variables:
-    TEMPLATE_URL: "https://s3.amazonaws.com/curryPoint_cloud_formation/cf_demo/compute-stack.template"
+    TEMPLATE_URL: "https://s3.amazonaws.com/curryPoint_cloud_formation/cf_demo/compute-SLES12.template"
     AWS_REGION: "us-east-1"
     TAG_ENVIRONMENT: "ansible-cfn-demo"
     TAG_NAME: "Apache Web Server"
-    TAG_GROUP: "webservers"
+    TAG_GROUP: "curryPoint"
+    AMI_ID: ""
   parameter-store:
     INSTANCE_TYPE: "/ansible_demo/instance_type"
     SSH_LOCATION: "/ansible_demo/ssh_location"
