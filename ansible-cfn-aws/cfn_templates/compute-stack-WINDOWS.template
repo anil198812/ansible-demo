@@ -65,7 +65,26 @@ Parameters:
     Default: development
     ConstraintDescription: must be between 1-18 characters.
 Resources:
-  WebServerGroup:
+  Ec2SsmIamRole:
+    Type: AWS::IAM::Role
+    Properties: 
+      AssumeRolePolicyDocument: 
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: [ec2.amazonaws.com]
+            Action: ['sts:AssumeRole']
+      Path: /
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM
+
+  Ec2SsmInstanceProfile:
+    Type: AWS::IAM::InstanceProfile
+    Properties: 
+      Path: /
+      Roles: [!Ref Ec2SsmIamRole]
+
+  EC2Instance:
     Type: 'AWS::AutoScaling::AutoScalingGroup'
     Properties:
       VPCZoneIdentifier: !Ref Subnets
@@ -141,6 +160,7 @@ Resources:
                   - /etc/cfn/hooks.d/cfn-auto-reloader.conf
     Properties:
       ImageId: !Ref LatestAmiId
+      IamInstanceProfile: !Ref Ec2SsmInstanceProfile
       SecurityGroups:
         - !Ref InstanceSecurityGroup
       InstanceType: !Ref InstanceType
@@ -149,6 +169,14 @@ Resources:
         'Fn::Base64':
           'Fn::Sub': >
             #!/bin/bash -xe
+            adduser appadm
+            su - appadm
+            /bin/mkdir /home/appadm/.ssh
+            chmod 700 .ssh
+            cd .ssh
+            /bin/touch /home/webadm/.ssh/authorized_keys
+            chmod 600 authorized_keys 
+            curl http://169.254.169.254/latest/meta-data/public-keys/0/openssh-key > /home/appadm/.ssh/authorized_keys
 
             yum update -y aws-cfn-bootstrap
 
