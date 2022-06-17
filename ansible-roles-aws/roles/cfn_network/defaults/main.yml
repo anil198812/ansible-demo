@@ -1,2 +1,10 @@
 ---
 stack_name: 'ansible-cfn-CurryPoint-network'
+region: 'us-east-1'
+TEMPLATE_URL: 'https://s3.amazonaws.com/ansible-demo-s3bucket/network-stack.template'
+VPC_CIDR: '10.0.0.0/24'
+PUBLIC_SUBNET_1_CIDR: '10.0.0.0/28'
+PUBLIC_SUBNET_2_CIDR: '10.0.0.16/28'
+PRIVATE_SUBNET_1_CIDR: '10.0.0.32/28'
+PRIVATE_SUBNET_2_CIDR: '10.0.0.48/28'
+TAG_ENVIRONMENT: 'ansible-cfn-demo'

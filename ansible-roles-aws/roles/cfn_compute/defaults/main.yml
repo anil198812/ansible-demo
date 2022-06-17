@@ -1,2 +1,11 @@
 ---
 stack_name: 'ansible-cfn-curry-point'
+TEMPLATE_URL: "https://ansible-demo-s3bucket.s3.amazonaws.com/compute-stack.template"
+AWS_REGION: "us-east-1"
+TAG_ENVIRONMENT: "ansible-cfn-demo"
+TAG_NAME: "Ansible DEmo"
+TAG_GROUP: "ansibleDemo"
+INSTANCE_TYPE: "t2.micro"
+SSH_LOCATION: "0.0.0.0/0"
+KEY_NAME: "anil-keypair"
+AMI_ID: "ami-074c1f40d02907260"
